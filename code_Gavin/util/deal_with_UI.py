@@ -145,8 +145,13 @@ def re_open_open(spider):
     return False
 
 def re_open_with_no_exit(spider):
-    spider.web_driver.refresh()
-    time.sleep(5)
+    time_start = time.time()
+    while time.time() - time_start <= 60:
+        try:
+            spider.web_driver.refresh()
+            break
+        except:
+            time.sleep(5)
     time_start = time.time()
     while time.time() - time_start <= 60:
         try:
