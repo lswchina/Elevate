@@ -59,7 +59,7 @@ class askChatGPT:
                     responseBody = openai.ChatCompletion.create(
                         engine="Gavin_deployment",
                         messages = self.__messageBody1,
-                        temperature = 0.1,
+                        temperature = 0,
                         max_tokens = 200
                     )
                     state = str(responseBody['choices'][0]['message']['content'])
@@ -185,7 +185,7 @@ class askChatGPT:
                     responseBody = openai.ChatCompletion.create(
                         engine="Gavin_deployment",
                         messages = self.__messageBody2,
-                        temperature = 0,
+                        temperature = 0.1,
                         max_tokens = 300
                     )
                     gpt_response = str(responseBody['choices'][0]['message']['content'])
@@ -273,7 +273,7 @@ class askChatGPT:
                     responseBody = openai.ChatCompletion.create(
                         engine="Gavin_deployment",
                         messages = messageBody,
-                        temperature = 0,
+                        temperature = 0.1,
                         max_tokens = 350
                     )
                     responses2 = str(responseBody['choices'][0]['message']['content'])
@@ -359,7 +359,7 @@ class askChatGPT:
                     responseBody = openai.ChatCompletion.create(
                         engine="Gavin_deployment",
                         messages = self.__messageBody3,
-                        temperature = 0,
+                        temperature = 0.1,
                         max_tokens = 400
                     )
                     response = str(responseBody['choices'][0]['message']['content'])
@@ -537,7 +537,7 @@ class askChatGPT:
                     responseBody = openai.ChatCompletion.create(
                         engine="Gavin_deployment",
                         messages = messageBody,
-                        temperature = 0,
+                        temperature = 0.1,
                         max_tokens = 450
                     )
                     response2 = str(responseBody['choices'][0]['message']['content'])
