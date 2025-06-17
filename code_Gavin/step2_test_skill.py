@@ -63,6 +63,12 @@ def getAlexa(request):
             return req[0]
     return None
 
+def getSkill(request):
+    for req in request:
+        if req[1] != 'Alexa':
+            return req[0]
+    return None
+
 def generateTest(skill_log_path, res_dir, spider, skill, gpt, fsm):
     skillName_to_dirName = re.sub(r'(\W+)', '_', skill.skillName)
     output = getAns(skill.skillName, skill.getBascComds(), skill.getSysComds(), skill_log_path, gpt, fsm)
@@ -132,7 +138,7 @@ def generateTest(skill_log_path, res_dir, spider, skill, gpt, fsm):
             Stop = True
 
         rounds = 1
-        while Stop == False:
+        while Stop == False and getSkill(request) != None:
             skillStart = True
             Inpt, lastQuestion = ansSkill(i, output, fsm, rounds, request, lastQuestion, Inpt, time_before_testing)
             rounds = rounds + 1
