@@ -1,0 +1,463 @@
+open amazon
+
+code:Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 284, in open_log_page
+    self.judge_curUrl()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 260, in judge_curUrl
+    code = input("code:")
+OSError: [Errno 9] Bad file descriptor
+open amazon
+
+code:Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 284, in open_log_page
+    self.judge_curUrl()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 260, in judge_curUrl
+    code = input("code:")
+OSError: [Errno 9] Bad file descriptor
+open amazon
+https://www.amazon.com/ap/signin?openid.pape.preferred_auth_policies=Singlefactor&openid.pape.max_auth_age=7200000&openid.return_to=https%3A%2F%2Fdeveloper.amazon.com%2Falexa%2Fconsole%2Fask%2Ftest%2Famzn1.ask.skill.37b2a354-9469-469a-bbcf-446dc9d75a74%2Fdevelopment%2Fen_US%2F&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dante_us&openid.mode=checkid_setup&marketPlaceId=ATVPDKIKX0DER&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&
+open console error!
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:39: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(skilln) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:40: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(skilln)
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:42: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(skill[0]) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:43: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(skill[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:45: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(alexa[0]) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:48: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(we[0]) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:49: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(we[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:52: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(user[0]) > userSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:53: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  userSim = subject[0].similarity(user[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:55: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(you[0]) > userSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:56: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  userSim = subject[0].similarity(you[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:46: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(alexa[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:39: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(skilln) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:40: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(skilln)
+open amazon
+Whose Turn
+basic command is  ['should', 'take the trash']
+basic command is  ['should', 'take the trash']
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 0], "pause":["system-level", 1], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+pause:[system-level, 1]
+zzZ---getting for log list loading 
+<---not go on: time more than 1 minutes and speech not start--->
+[]
+zzZ---getting for log list loading 
+[["It's 5:15 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 0], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+resume:[system-level, 1]
+zzZ---getting for log list loading 
+[['Sorry, there is nothing for me to resume.', 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 0], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 0]]
+stop:[system-level, 1]
+zzZ---getting for log list loading 
+<---nothing update, only insignificance content--->
+[]
+zzZ---getting for log list loading 
+[["It's 5:16 AM.", 'Alexa']]
+what's the time:[system-level, 0]
+zzZ---getting for log list loading 
+[["It's 5:16 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 1], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 0]]
+help:[system-level, 1]
+zzZ---getting for log list loading 
+<---not go on: time more than 1 minutes and speech not start--->
+[]
+zzZ---getting for log list loading 
+[["It's 5:18 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 1], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 1]]
+what's the time:[system-level, 1]
+zzZ---getting for log list loading 
+[["It's 5:19 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 1], "pause":["system-level", 2], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 1]]
+pause:[system-level, 2]
+zzZ---getting for log list loading 
+<---not go on: time more than 1 minutes and speech not start--->
+[]
+zzZ---getting for log list loading 
+[["It's 5:21 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <Short audio>
+["help":["system-level", 1], "pause":["system-level", 2], "resume":["system-level", 1], "stop":["system-level", 2], "what's the time":["system-level", 1]]
+stop:[system-level, 2]
+zzZ---getting for log list loading 
+<---nothing update, only insignificance content--->
+[]
+zzZ---getting for log list loading 
+[['The time is 5:21 AM.', 'Alexa']]
+what's the time:[system-level, 0]
+zzZ---getting for log list loading 
+[['The time is 5:21 AM.', 'Alexa']]
+Zyrtec
+basic command is  ['Take allergy season with the ZYRTEC Skill for Alexa', "know day 's", 'feel', 'have to do is enable the skill', 'say', 'Call Monday to Friday am to ET', 'visit', 'Visit the Contact Us page at Zyrtec.com to share feedback suggestions to improve skill']
+basic command is  ['Take allergy season with the ZYRTEC Skill for Alexa', "know day 's", 'feel', 'have to do is enable the skill', 'say', 'Call Monday to Friday am to ET', 'visit', 'Visit the Contact Us page at Zyrtec.com to share feedback suggestions to improve skill']
+zzZ---getting for log list loading 
+[["Ok, Here's Zyrtec.", 'Alexa'], ['<Short audio>.<span classace_invisible ace_invisible_space ace_invalid>.', 'ThirdParty']]
+['Zyrtec.']
+The question is  <span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+help:[system-level, 1]
+zzZ---getting for log list loading 
+[['Zyrtec is your goto resource for allergy information. You can say Get my AllergyCast to hear your daily pollen count. Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.', 'ThirdParty']]
+The question list is  [Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count.]
+Choose the max
+The question is  Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+["when does pollen season end":["context-related", 1], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+when does pollen season end:[context-related, 1]
+zzZ---getting for log list loading 
+[["Sounds like you said something we don't have an answer for yet. You can say Get my AllergyCast to hear your daily pollen count. Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count., Sounds like you said something we don't have an answer for yet.]
+Choose the max
+The question is  Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+["when does pollen season end":["context-related", 1], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+when does pollen season end:[context-related, 1]
+zzZ---getting for log list loading 
+[["Sounds like you said something we don't have an answer for yet. You can say Get my AllergyCast to hear your daily pollen count. Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count., Sounds like you said something we don't have an answer for yet.]
+Choose the max
+The question is  Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+when does pollen season end not in ['help', 'pause', 'resume', 'stop', "what's the time", 'visit the contact us page at zyrtec.com to share feedback suggestions to improve skill', 'feel', 'call monday to friday am to et', 'allergies', 'pollen season'] of state Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+open amazon
+https://www.amazon.com/ap/signin?openid.pape.preferred_auth_policies=Singlefactor&clientContext=130-2177625-4419214&openid.pape.max_auth_age=7200000&openid.return_to=https%3A%2F%2Fdeveloper.amazon.com%2Falexa%2Fconsole%2Fask%2Ftest%2Famzn1.ask.skill.37b2a354-9469-469a-bbcf-446dc9d75a74%2Fdevelopment%2Fen_US%2F&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dante_us&openid.mode=checkid_setup&marketPlaceId=ATVPDKIKX0DER&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&
+open console error!
+open amazon
+Whose Turn
+basic command is  ['should', 'take the trash']
+basic command is  ['should', 'take the trash']
+zzZ---getting for log list loading 
+The question list is  [Ask me whose turn it is to do something like shovel or laundry.]
+Choose the max
+The question is  Ask me whose turn it is to do something like shovel or laundry.
+["whose turn is it to shovel?":["context-related", 1], "whose turn is it to do the laundry?":["context-related", 0], "is it my turn to shovel?":["context-related", 0], "is it your turn to do the laundry?":["context-related", 0], "who is supposed to shovel today?":["context-related", 0], "who should be doing the laundry now?":["context-related", 0], "can you tell me whose turn it is to shovel?":["context-related", 0], "could you remind me whose turn it is to do the laundry?":["context-related", 0], "i need to know whose turn it is to shovel.":["context-related", 0], "please let me know whose turn it is to do the laundry.":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+whose turn is it to shovel?:[context-related, 1]
+zzZ---getting for log list loading 
+[["It's Big Daddy's turn.And put your back into it. you could use the extra exercise.", 'ThirdParty']]
+The question is  you could use the extra exercise.
+["i probably do need more exercise.":["context-related", 1], "you're right, i should get moving.":["context-related", 0], "i guess i could use a workout.":["context-related", 0], "whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+i probably do need more exercise.:[context-related, 1]
+zzZ---getting for log list loading 
+[["Sorry, I'm having trouble accessing your Whose Turn skill right now.", 'ThirdParty']]
+The question is  Sorry, I'm having trouble accessing your Whose Turn skill right now.
+["no problem, i'll try again later.":["context-related", 0], "that's okay. can you fix the issue?":["context-related", 1], "sorry to hear that. when will it be working again?":["context-related", 0], "whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+that's okay. can you fix the issue?:[context-related, 1]
+zzZ---getting for log list loading 
+[['For Help, please visit the help pages on the Amazon web site.', 'Alexa']]
+zzZ---getting for log list loading 
+The question list is  [Ask me whose turn it is to do something like shovel or laundry.]
+Choose the max
+The question is  Ask me whose turn it is to do something like shovel or laundry.
+["whose turn is it to shovel?":["context-related", 1], "whose turn is it to do the laundry?":["context-related", 0], "is it my turn to shovel?":["context-related", 0], "is it your turn to do the laundry?":["context-related", 0], "who is supposed to shovel today?":["context-related", 0], "who should be doing the laundry now?":["context-related", 1], "can you tell me whose turn it is to shovel?":["context-related", 0], "could you remind me whose turn it is to do the laundry?":["context-related", 0], "i need to know whose turn it is to shovel.":["context-related", 0], "please let me know whose turn it is to do the laundry.":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+who should be doing the laundry now?:[context-related, 1]
+zzZ---getting for log list loading 
+[["Sorry, I'm having trouble accessing your Whose Turn skill right now.", 'ThirdParty']]
+The question is  Sorry, I'm having trouble accessing your Whose Turn skill right now.
+["whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "no problem, i'll try again later.":["context-related", 1], "that's okay. can you fix the issue?":["context-related", 0], "sorry to hear that. when will it be working again?":["context-related", 0]]
+no problem, i'll try again later.:[context-related, 1]
+zzZ---getting for log list loading 
+<---not go on: time more than 1 minutes and speech not start--->
+[]
+zzZ---getting for log list loading 
+[["It's 5:27 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question list is  [Ask me whose turn it is to do something like shovel or laundry.]
+Choose the max
+The question is  Ask me whose turn it is to do something like shovel or laundry.
+["whose turn is it to shovel?":["context-related", 1], "whose turn is it to do the laundry?":["context-related", 0], "is it my turn to shovel?":["context-related", 0], "is it your turn to do the laundry?":["context-related", 0], "who is supposed to shovel today?":["context-related", 0], "who should be doing the laundry now?":["context-related", 1], "can you tell me whose turn it is to shovel?":["context-related", 0], "could you remind me whose turn it is to do the laundry?":["context-related", 0], "i need to know whose turn it is to shovel.":["context-related", 1], "please let me know whose turn it is to do the laundry.":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+i need to know whose turn it is to shovel.:[context-related, 1]
+zzZ---getting for log list loading 
+[["It's Big Daddy's turn.And put your back into it. you could use the extra exercise.", 'ThirdParty']]
+The question is  you could use the extra exercise.
+open amazon
+
+code:Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 284, in open_log_page
+    self.judge_curUrl()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 260, in judge_curUrl
+    code = input("code:")
+OSError: [Errno 9] Bad file descriptor
+open amazon
+
+code:Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 284, in open_log_page
+    self.judge_curUrl()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 260, in judge_curUrl
+    code = input("code:")
+OSError: [Errno 9] Bad file descriptor
+["help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0], "allergies":["context-related", 0], "pollen season":["context-related", 1]]
+pollen season:[context-related, 1]
+zzZ---getting for log list loading 
+[['Are you still there.<span classace_invisible ace_invisible_space ace_invalid>Get my AllergyCast to hear your daily pollen count. Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.', 'ThirdParty']]
+The question list is  [Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., Are you still there.<span]
+Choose the max
+The question is  Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+["when does pollen season end":["context-related", 2], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+when does pollen season end:[context-related, 2]
+zzZ---getting for log list loading 
+[["Sounds like you said something we don't have an answer for yet. You can say Get my AllergyCast to hear your daily pollen count. Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count., Sounds like you said something we don't have an answer for yet.]
+Choose the max
+The question is  You can say Get my AllergyCast to hear your daily pollen count.
+["get my allergycast":["context-related", 1], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+get my allergycast:[context-related, 1]
+zzZ---getting for log list loading 
+[["Today in Location, the pollen count is PollenCountHighLow, at PollenCount out of 12. Your Allergy Impact is AllergyImpact, which is HighLow than the pollen count, so you might ImpactExplanation  The predominant pollen is PredominantPollen Today's weather is WeatherConditions with the high of WeatherHigh and a low of WeatherLow. WeatherInsight<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [The predominant pollen is PredominantPollen Today's weather is WeatherConditions with the high of WeatherHigh and a low of WeatherLow., Your Allergy Impact is AllergyImpact, which is HighLow than the pollen count, so you might]
+Choose the max
+The question is  The predominant pollen is PredominantPollen Today's weather is WeatherConditions with the high of WeatherHigh and a low of WeatherLow.
+["predominantpollen":["context-related", 1], "weatherconditions":["context-related", 0], "weatherhigh":["context-related", 0], "weatherlow":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+predominantpollen:[context-related, 1]
+zzZ---getting for log list loading 
+<---nothing update, only insignificance content--->
+[]
+zzZ---getting for log list loading 
+[['No problem.  What phone number would you like the info sent to.', 'ThirdParty']]
+zzZ---getting for log list loading 
+The question is  <span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 1], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+what's the time:[system-level, 1]
+zzZ---getting for log list loading 
+[["It can start as early as January and last through June. It just doesn't know when to leaf. Get it, leaf. Sorry I just love a pun.  What else can I help you with.<span classace_invisible ace_invisible_space ace_invalid>Get my AllergyCast, or, if this answered your questions, why not download AllergyCast from your mobile app store.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [Get my AllergyCast, or, if this answered your questions, why not download AllergyCast from your mobile app store.<span classace_invisible ace_invisible_space ace_invalid>., What else can I help you with.<span classace_invisible ace_invisible_space ace_invalid, Get it, leaf., It can start as early as January and last through June.]
+Choose the max
+The question is  Get my AllergyCast, or, if this answered your questions, why not download AllergyCast from your mobile app store.<span classace_invisible ace_invisible_space ace_invalid>.
+["get my allergycast":["context-related", 1], "download allergycast":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+get my allergycast:[context-related, 1]
+zzZ---getting for log list loading 
+[["Today in Location, the pollen count is PollenCountHighLow, at PollenCount out of 12. Your Allergy Impact is AllergyImpact, which is HighLow than the pollen count, so you might ImpactExplanation  The predominant pollen is PredominantPollen Today's weather is WeatherConditions with the high of WeatherHigh and a low of WeatherLow. WeatherInsight<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [The predominant pollen is PredominantPollen Today's weather is WeatherConditions with the high of WeatherHigh and a low of WeatherLow., Your Allergy Impact is AllergyImpact, which is HighLow than the pollen count, so you might]
+Choose randomly
+The question is  Your Allergy Impact is AllergyImpact, which is HighLow than the pollen count, so you might
+["explain":["context-related", 1], "what does this mean":["context-related", 0], "tell me more":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "feel":["system-level", 0], "call monday to friday am to et":["system-level", 0]]
+explain:[context-related, 1]
+zzZ---getting for log list loading 
+<---nothing update, only insignificance content--->
+[]
+zzZ---getting for log list loading 
+[['No problem.  What phone number would you like the info sent to.', 'ThirdParty']]
+zzZ---getting for log list loading 
+The question is  <span classace_invisible ace_invisible_space ace_invalid>.
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:39: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(skilln) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:40: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(skilln)
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:42: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(skill[0]) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:43: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(skill[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:45: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(alexa[0]) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:48: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(we[0]) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:49: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(we[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:52: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(user[0]) > userSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:53: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  userSim = subject[0].similarity(user[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:55: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(you[0]) > userSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:56: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  userSim = subject[0].similarity(you[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:46: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(alexa[0])
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:39: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  if subject[0].similarity(skilln) > skillSim:
+/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/skill/Skill.py:40: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Token.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+  skillSim = subject[0].similarity(skilln)
+open amazon
+Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 292, in open_log_page
+    deviceLevel_element = self.web_driver.find_element(By.ID, 'deviceLevel-label')
+  File "/home/lsw/.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1244, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/home/lsw/.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 424, in execute
+    self.error_handler.check_response(response)
+  File "/home/lsw/.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="deviceLevel-label"]"}
+  (Session info: headless chrome=94.0.4606.81)
+Stacktrace:
+#0 0x561b344548f3 <unknown>
+#1 0x561b33f39ba8 <unknown>
+#2 0x561b33f6f9b5 <unknown>
+#3 0x561b33fa2104 <unknown>
+#4 0x561b33f8ce9d <unknown>
+#5 0x561b33f9fdac <unknown>
+#6 0x561b33f8cd63 <unknown>
+#7 0x561b33f63144 <unknown>
+#8 0x561b33f64135 <unknown>
+#9 0x561b34483c3e <unknown>
+#10 0x561b344996b7 <unknown>
+#11 0x561b34484b95 <unknown>
+#12 0x561b3449ab05 <unknown>
+#13 0x561b344792ab <unknown>
+#14 0x561b344b5248 <unknown>
+#15 0x561b344b53c8 <unknown>
+#16 0x561b344d033d <unknown>
+#17 0x7f925edb3609 start_thread
+
+["whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "i probably do need more exercise.":["context-related", 0], "you're right, i should get moving.":["context-related", 1], "i guess i could use a workout.":["context-related", 0]]
+you're right, i should get moving.:[context-related, 1]
+zzZ---getting for log list loading 
+[["Sorry, I'm having trouble accessing your Whose Turn skill right now.", 'ThirdParty']]
+The question is  Sorry, I'm having trouble accessing your Whose Turn skill right now.
+["whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 1], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "no problem, i'll try again later.":["context-related", 1], "that's okay. can you fix the issue?":["context-related", 0], "sorry to hear that. when will it be working again?":["context-related", 0]]
+please let me know whose turn it is to do the laundry.:[help-embedded, 1]
+zzZ---getting for log list loading 
+[["There's nothing scheduled for the next 30 days.", 'Alexa']]
+zzZ---getting for log list loading 
+The question list is  [Ask me whose turn it is to do something like shovel or laundry.]
+Choose randomly
+The question is  Ask me whose turn it is to do something like shovel or laundry.
+["whose turn is it to shovel?":["context-related", 1], "whose turn is it to do the laundry?":["context-related", 1], "is it my turn to shovel?":["context-related", 0], "is it your turn to do the laundry?":["context-related", 0], "who is supposed to shovel today?":["context-related", 0], "who should be doing the laundry now?":["context-related", 1], "can you tell me whose turn it is to shovel?":["context-related", 0], "could you remind me whose turn it is to do the laundry?":["context-related", 0], "i need to know whose turn it is to shovel.":["context-related", 1], "please let me know whose turn it is to do the laundry.":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+whose turn is it to do the laundry?:[context-related, 1]
+zzZ---getting for log list loading 
+[["It's R's turn.wash those clothes real good.", 'ThirdParty']]
+The question is  It's R's turn.wash those clothes real good.
+["whose turn is it to shovel?":["context-related", 1], "whose turn is it to do the laundry?":["context-related", 1], "is it my turn to shovel?":["context-related", 1], "is it your turn to do the laundry?":["context-related", 0], "who is supposed to shovel today?":["context-related", 0], "who should be doing the laundry now?":["context-related", 1], "can you tell me whose turn it is to shovel?":["context-related", 0], "could you remind me whose turn it is to do the laundry?":["context-related", 0], "i need to know whose turn it is to shovel.":["context-related", 1], "please let me know whose turn it is to do the laundry.":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0]]
+is it my turn to shovel?:[context-related, 1]
+zzZ---getting for log list loading 
+[["It's Big Daddy's turn.And put your back into it. you could use the extra exercise.", 'ThirdParty']]
+The question is  you could use the extra exercise.
+["whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "i probably do need more exercise.":["context-related", 0], "you're right, i should get moving.":["context-related", 1], "i guess i could use a workout.":["context-related", 1]]
+i guess i could use a workout.:[context-related, 1]
+zzZ---getting for log list loading 
+[["Sorry, I'm having trouble accessing your Whose Turn skill right now.", 'ThirdParty']]
+The question is  Sorry, I'm having trouble accessing your Whose Turn skill right now.
+["whose turn is it to shovel?":["help-embedded", 0], "whose turn is it to do the laundry?":["help-embedded", 0], "is it my turn to shovel?":["help-embedded", 0], "is it your turn to do the laundry?":["help-embedded", 0], "who is supposed to shovel today?":["help-embedded", 0], "who should be doing the laundry now?":["help-embedded", 0], "can you tell me whose turn it is to shovel?":["help-embedded", 0], "could you remind me whose turn it is to do the laundry?":["help-embedded", 0], "i need to know whose turn it is to shovel.":["help-embedded", 0], "please let me know whose turn it is to do the laundry.":["help-embedded", 1], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "no problem, i'll try again later.":["context-related", 1], "that's okay. can you fix the issue?":["context-related", 0], "sorry to hear that. when will it be working again?":["context-related", 1]]
+sorry to hear that. when will it be working again?:[context-related, 1]
+zzZ---getting for log list loading 
+<---not go on: time more than 1 minutes and speech not start--->
+[]
+zzZ---getting for log list loading 
+[["It's 5:35 AM.", 'Alexa']]
+Zyrtec
+basic command is  ['Take allergy season with the ZYRTEC Skill for Alexa', "know day 's", 'feel', 'have to do is enable the skill', 'say', 'Call Monday to Friday am to ET', 'visit', 'Visit the Contact Us page at Zyrtec.com to share feedback suggestions to improve skill']
+basic command is  ['Take allergy season with the ZYRTEC Skill for Alexa', "know day 's", 'feel', 'have to do is enable the skill', 'say', 'Call Monday to Friday am to ET', 'visit', 'Visit the Contact Us page at Zyrtec.com to share feedback suggestions to improve skill']
+zzZ---getting for log list loading 
+The question is  <span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 0]]
+help:[system-level, 1]
+open amazon
+
+code:Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 284, in open_log_page
+    self.judge_curUrl()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 260, in judge_curUrl
+    code = input("code:")
+OSError: [Errno 9] Bad file descriptor
+open amazon
+
+code:Traceback (most recent call last):
+  File "main.py", line 96, in <module>
+    UI.open_log_page(spider)
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/deal_with_UI.py", line 98, in open_log_page
+    spider.open_log_page()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 284, in open_log_page
+    self.judge_curUrl()
+  File "/home/lsw/Documents/Elevate/GPT4_vitas/code_Gavin_10/util/Spider.py", line 260, in judge_curUrl
+    code = input("code:")
+OSError: [Errno 9] Bad file descriptor
+zzZ---getting for log list loading 
+[['Zyrtec is your goto resource for allergy information. You can say Get my AllergyCast to hear your daily pollen count. Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.', 'ThirdParty']]
+The question list is  [Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count.]
+Choose the max
+The question is  Or, ask  another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 1], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 0]]
+stop:[system-level, 1]
+zzZ---getting for log list loading 
+[["Ok, when you need allergen information, I'm here 24 7 365 . Here is a moment of zen.<Short audio>.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+what's the time:[system-level, 0]
+zzZ---getting for log list loading 
+[["It's 5:38 AM.", 'Alexa']]
+zzZ---getting for log list loading 
+The question is  <span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 0], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 0]]
+resume:[system-level, 1]
+zzZ---getting for log list loading 
+[["Sounds like you said something we don't have an answer for yet. You can say Get my AllergyCast to hear your daily pollen count. Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count., Sounds like you said something we don't have an answer for yet.]
+Choose the max
+The question is  Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 0]]
+pause:[system-level, 1]
+zzZ---getting for log list loading 
+[["Sounds like you said something we don't have an answer for yet. You can say Get my AllergyCast to hear your daily pollen count. Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  [Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>., You can say Get my AllergyCast to hear your daily pollen count., Sounds like you said something we don't have an answer for yet.]
+Choose the max
+The question is  Or, ask another question about allergies, such as When does pollen season end.<span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 1], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 0]]
+what's the time:[system-level, 1]
+zzZ---getting for log list loading 
+[['When is it not pollen season. The two big spikes are spring and fall. But it never really ends.  What else can I help you with.<span classace_invisible ace_invisible_space ace_invalid>Get my AllergyCast, or, if this answered your questions, why not download AllergyCast from your mobile app store.<span classace_invisible ace_invisible_space ace_invalid>.', 'ThirdParty']]
+The question list is  [Get my AllergyCast, or, if this answered your questions, why not download AllergyCast from your mobile app store.<span classace_invisible ace_invisible_space ace_invalid>., What else can I help you with.<span classace_invisible ace_invisible_space ace_invalid, The two big spikes are spring and fall., When is it not pollen season.]
+Choose the max
+The question is  Get my AllergyCast, or, if this answered your questions, why not download AllergyCast from your mobile app store.<span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 1], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 1]]
+take allergy season with the zyrtec skill for alexa:[system-level, 1]
+zzZ---getting for log list loading 
+[]
+zzZ---getting for log list loading 
+<---not go on: time more than 1 minutes and speech not start--->
+zzZ---getting for log list loading 
+The question is  <span classace_invisible ace_invisible_space ace_invalid>.
+["help":["system-level", 1], "pause":["system-level", 1], "resume":["system-level", 1], "stop":["system-level", 1], "what's the time":["system-level", 1], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 1], "take allergy season with the zyrtec skill for alexa":["system-level", 1]]
+say:[system-level, 1]
+zzZ---getting for log list loading 
+[['Are you still there. You can say Get my Allergy Cast to get started.', 'ThirdParty']]
+The question list is  [You can say Get my Allergy Cast to get started., Are you still there.]
+Choose the max
+The question is  You can say Get my Allergy Cast to get started.
+["get my allergy cast":["context-related", 1], "what is allergy cast?":["context-related", 0], "how does allergy cast work?":["context-related", 0], "can you explain allergy cast?":["context-related", 0], "tell me more about allergy cast":["context-related", 0], "start allergy cast":["context-related", 0], "begin allergy cast":["context-related", 0], "i want to use allergy cast":["context-related", 0], "allergy cast info":["context-related", 0], "help with allergy cast":["context-related", 0], "help":["system-level", 0], "pause":["system-level", 0], "resume":["system-level", 0], "stop":["system-level", 0], "what's the time":["system-level", 0], "visit the contact us page at zyrtec.com to share feedback suggestions to improve skill":["system-level", 0], "say":["system-level", 0], "take allergy season with the zyrtec skill for alexa":["system-level", 0]]
+get my allergy cast:[context-related, 1]
+zzZ---getting for log list loading 
+[["Today in Location, the pollen count is PollenCountHighLow, at PollenCount out of 12. Your Allergy Impact is AllergyImpact, which is HighLow than the pollen count, so you might ImpactExplanation  The predominant pollen is PredominantPollen Today's weather is WeatherConditions with the high of WeatherHigh and a low of WeatherLow. WeatherInsight<span classace_invisible ace_invisible_space ace_invalid>.", 'ThirdParty']]
+The question list is  
