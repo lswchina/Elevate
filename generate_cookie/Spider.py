@@ -30,8 +30,8 @@ class Spider:
         self.home_page = 'https://www.amazon.com/'
         if generateAll == True or not os.path.exists(cookie_dir):
             self.__generate_cookie(cookie_dir)
-        code = self.__get_link()
-        print(code)
+        # code = self.__get_link()
+        # print(code)
         print("open amazon")
 
     def __dump_cookie(self, cookie_dir, webdriver):
@@ -69,15 +69,15 @@ class Spider:
         time.sleep(5)
         try:
             log_in_button = self.web_driver.find_element(By.XPATH, '//*[@id="nav-link-accountList"]')
-            self.web_driver.execute_script("arguments[0].click()", log_in_button)
+            log_in_button.click()
         except:
             print(self.web_driver.page_source)
             print('enter www.amazon.com error!')
             sys.exit()
         # self.auto_login()
-        time.sleep(2)
-        self.web_driver.find_element(By.ID, 'ap_email').send_keys(self.username)
-        self.web_driver.find_element(By.ID, 'ap_email').send_keys(Keys.ENTER)
+        time.sleep(5)
+        self.web_driver.find_element(By.ID, 'ap_email_login').send_keys(self.username)
+        self.web_driver.find_element(By.ID, 'ap_email_login').send_keys(Keys.ENTER)
         time.sleep(10)
         try:
             self.web_driver.find_element(By.ID, 'ap_password').send_keys(self.password)
@@ -94,6 +94,7 @@ class Spider:
                     time.sleep(2)
                     self.web_driver.find_element(By.ID, 'input-box-otp').send_keys(code)
                     self.web_driver.find_element(By.ID, 'input-box-otp').send_keys(Keys.ENTER)
+                    time.sleep(5)
         self.__dump_cookie(cookie_dir, self.web_driver)
 
     def __get_link(self):
@@ -117,18 +118,15 @@ class Spider:
             for messagePart in messageParts:
                 bodyContent = self.__decodeBody(messagePart)
                 if bodyContent:
-                    res1 = re.findall(r'''<td colspan="2" align="left" style="background-color: \#D3D3D3; text-align: left; font-size:20px; font-weight: bold; font-family: 'Amazon Ember', Arial, sans-serif; padding-top: 15px; padding-bottom: 10px; padding-left: 10px; padding-right: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">(.*?)</td>''', str(bodyContent), re.S)
-                    if len(res1) > 0:
-                        code = re.findall(r'''<p>(.*?)</p>''', res1[0], re.S)
-                        if len(code) > 0:
-                            pop3Server.quit()
-                            return code[0].strip()
+                    code = re.findall(r"<span class=\"rio-text rio-text-9\">(.*?)</span>", str(bodyContent), re.S)
+                    if len(code) > 0:
+                        pop3Server.quit()
+                        return code[0].strip()
         else:
             bodyContent = self.__decodeBody(messageObject)
             if bodyContent:
-                res1 = re.findall(r'''<td colspan="2" align="left" style="background-color: \#D3D3D3; text-align: left; font-size:20px; font-weight: bold; font-family: 'Amazon Ember', Arial, sans-serif; padding-top: 15px; padding-bottom: 10px; padding-left: 10px; padding-right: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">(.*?)</td>''', str(bodyContent), re.S)
-                if len(res1) > 0:
-                    code = re.findall(r'''<p>(.*?)</p>''', res1[0], re.S)
+                print(bodyContent)
+                code = re.findall(r"<span class=\"rio-text rio-text-9\">(.*?)</span>", str(bodyContent), re.S)
                 if len(code) > 0:
                     pop3Server.quit()
                     return code[0].strip()
