@@ -138,7 +138,8 @@ def generateTest(skill_log_path, res_dir, spider, skill, gpt, fsm):
             Stop = True
 
         rounds = 1
-        while Stop == False and getSkill(request) != None:
+        
+        while Stop == False and time.time() - time_before_testing < Constant.TIME_LIMIT and getSkill(request) != None:
             skillStart = True
             Inpt, lastQuestion = ansSkill(i, output, fsm, rounds, request, lastQuestion, Inpt, time_before_testing)
             rounds = rounds + 1
