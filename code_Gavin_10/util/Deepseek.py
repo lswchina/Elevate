@@ -101,7 +101,7 @@ class askDeepseek:
     def getPromptGlobal1(self):
         if self.__promptGlobal1 != "":
             return self.__promptGlobal1
-        if self.ablation != "1":
+        if self.ablation != "1" and self.ablation != "-1":
             step1_Example = {'sentence: "What are you interested in.", state list: []': '"What are you interested in."',
                     'sentence: "Ok, which other animal sound do you want to listen to.", state list: ["What are you interested in."]': '"Ok, which other animal sound do you want to listen to."',
                     'sentence: "Alright, now ask me for another animal.", state list: ["What are you interested in.", "Come on, ask for another animal."]': '"Come on, ask for another animal."',
@@ -122,7 +122,7 @@ class askDeepseek:
         return self.__promptGlobal1
 
     def step1_prompt2(self, state, skill_output, state_list, errorMessage, messageBody):
-        if self.ablation == "1" or self.delete_feedback:
+        if self.ablation == "1" or self.ablation == "-1" or self.delete_feedback:
             return skill_output
         if errorMessage == 'not_exist':
             promptBody2 = "The \"" + state + "\" is not in the state list " + str(state_list) + ". "
@@ -204,7 +204,7 @@ class askDeepseek:
         return response_list
             
     def step2_prompt2(self, inpt, Ques, context_related_inputs, type, state, nouns):
-        if self.ablation == "2" or self.delete_feedback:
+        if self.ablation == "2" or self.ablation == "-1" or self.delete_feedback:
             return context_related_inputs
         skill_output = Ques.get_ques()
         if inpt == '':
@@ -267,7 +267,7 @@ class askDeepseek:
     def __getPromptGlobal2(self):
         if self.__promptGlobal2 != "":
             return self.__promptGlobal2
-        if self.ablation != "2":
+        if self.ablation != "2" and self.ablation != "-1":
             step2_Example = {"Say today's deals to get started": '["today\'s deals"]',
                             "You can choose a part type like ssd, hdd, cpu, or pick one from the list in the skill's description.": '["ssd", "hdd", "cpu"]',
                             "Do you want to see hdd deals?": '["yes", "no"]',
@@ -299,7 +299,7 @@ class askDeepseek:
             hasGlobal3 = False
             self.__getPromptGlobal3()
         promptBody = "Input: " + skill_state_info + "\n"
-        if self.ablation == "3":
+        if self.ablation == "3" or self.ablation == "-1":
             promptBody = promptBody + "Output:"
         else:
             promptBody = promptBody + "Thought:"
@@ -369,7 +369,7 @@ class askDeepseek:
         return select_input
 
     def __find_better_inputs(self, candidate_input_set_to_weight, candidate_Inpt_list, select_input):
-        if self.ablation == "3" or self.delete_feedback:
+        if self.ablation == "3" or self.ablation == "-1" or self.delete_feedback:
             return []
         better_inputs = []
         weight_of_select_input = candidate_input_set_to_weight[select_input]
@@ -425,7 +425,7 @@ class askDeepseek:
     def __getPromptGlobal3(self):
         if self.__promptGlobal3 != "":
             return self.__promptGlobal3
-        if self.ablation != "3":
+        if self.ablation != "3" and self.ablation != "-1":
             step3_Example = {'''<current state>="Say today's deals to get started.",FSM={Σ={"stop":0,"help":0,"today's deals":0},δ=()}''': ['''inputs after step1:["stop","help","today's deals"]. inputs after step 2:["today's deals"]. step 3:choose "today\'s deals"''', '"today\'s deals"'],
                             '''<current state>="You can choose a part type like ssd, hdd, cpu, or pick one from the list in the skill's description.",FSM={Σ={"stop":0,"help":0,"ssd":1,"hdd":1,"cpu":0,"today's deals":1},δ=([<current state>,"today's deals",<current state>])}.''': ['''inputs after step1:["stop","help","ssd","hdd","cpu"]. inputs after step2:["ssd","hdd","cpu"] left. step3:choose "cpu".''', '"cpu"']
                             }
@@ -455,7 +455,7 @@ class askDeepseek:
         return self.__promptGlobal3
 
     def step3_prompt2(self, inpt, better_inputs, candidate_input_list, messageBody):
-        if self.ablation == "3" or self.delete_feedback:
+        if self.ablation == "3" or self.ablation == "-1" or self.delete_feedback:
             if inpt not in candidate_input_list:
                 return random.choice(candidate_input_list)
             else:
@@ -509,7 +509,7 @@ class askDeepseek:
         return candidate_input_list[ind]
 
     def __gen_prompt_for_step3(self, states, state, transitions, candidate_Inpt_list, candidate_input_list):
-        if self.ablation == "3":
+        if self.ablation == "3" or self.ablation == "-1":
             prompt = "sentence=" + state + ",input events="
             for ind, Inpt in enumerate(candidate_Inpt_list):
                 if ind != 0:

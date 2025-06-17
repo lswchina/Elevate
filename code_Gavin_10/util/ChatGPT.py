@@ -1,6 +1,6 @@
 import os
 import configparser
-import openai
+from openai import AzureOpenAI 
 import random
 from copy import deepcopy
 
@@ -20,13 +20,37 @@ class askChatGPT:
         self.__promptGlobal2 = ""
         self.__promptGlobal3 = ""
         self.__messageBody1 = [
-            {"role": "system", "content": "Help the user find a semantically identical state in the FSM."}
+            {
+                "role": "system", 
+                "content": [
+                    {
+                        "type": "text", 
+                        "text": "Help the user find a semantically identical state in the FSM."
+                    }
+                ]
+            }
         ]
         self.__messageBody2 = [
-            {"role": "system", "content": "Find all the responses to the skill's sentence."}
+            {
+                "role": "system", 
+                "content": [
+                    {
+                        "type": "text", 
+                        "text": "Find all the responses to the skill's sentence."
+                    }
+                ]
+            }
         ]
         self.__messageBody3 = [
-            {"role": "system", "content": "Choose one input from the input event list to cover more future states."}
+            {
+                "role": "system", 
+                "content": [
+                    {
+                        "type": "text", 
+                        "text": "Choose one input from the input event list to cover more future states."
+                    }
+                ]
+            }
         ]
         self.__config_path = config_path
         self.ablation = ablation
@@ -35,10 +59,11 @@ class askChatGPT:
     def step1_chat(self, skill_output, state_list):
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
-        openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_base = cf.get('Azure', 'apibase')
-        openai.api_version = cf.get('Azure', 'apiversion')
+        client = AzureOpenAI(  
+            azure_endpoint=cf.get('Azure', 'apibase'),  
+            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_version=cf.get('Azure', 'apiversion'),
+        )
         hasGlobal1 = True
         if self.__promptGlobal1 == "":
             hasGlobal1 = False
@@ -47,22 +72,22 @@ class askChatGPT:
         promptBody = promptBody + "Output:"
         if hasGlobal1 == False:
             self.__record_result(self.__Step1_Recorder_Path, "User:\n" + self.__promptGlobal1 + promptBody + "\n")
-            self.__messageBody1.append({"role": "user", "content": self.__promptGlobal1 + promptBody})
+            self.__messageBody1.append({"role": "user", "content": [{"type": "text", "text": self.__promptGlobal1 + promptBody}]})
         else:
             self.__record_result(self.__Step1_Recorder_Path, "User:\n" + promptBody + "\n")
-            self.__messageBody1.append({"role": "user", "content": promptBody})
+            self.__messageBody1.append({"role": "user", "content": [{"type": "text", "text": promptBody}]})
         if self.__useAPI == True:
             state = ''
             for i in range(3):
                 # self.update_duration_list()
                 try:
-                    responseBody = openai.ChatCompletion.create(
-                        engine="Gavin_deployment",
+                    responseBody = client.chat.completions.create(
+                        model="Gavin_deployment",
                         messages = self.__messageBody1,
                         temperature = 0,
                         max_tokens = 200
                     )
-                    state = str(responseBody['choices'][0]['message']['content'])
+                    state = str(responseBody.choices[0].message.content)
                     break
                 except Exception as e:
                     print(e)
@@ -75,7 +100,7 @@ class askChatGPT:
         state = state.strip('"')
         state = state.strip("'")
         self.__record_result(self.__Step1_Recorder_Path, "GPT4:\n" + state + "\n")
-        self.__messageBody1.append({"role": "assistant", "content": state})
+        self.__messageBody1.append({"role": "assistant", "content": [{"type": "text", "text": state}]})
         if state not in state_list and state != skill_output.strip():
             state = self.step1_prompt2(state, skill_output, state_list, 'not_exist', self.__messageBody1)
         elif state == "<START>":
@@ -89,7 +114,7 @@ class askChatGPT:
     def getPromptGlobal1(self):
         if self.__promptGlobal1 != "":
             return self.__promptGlobal1
-        if self.ablation != "1":
+        if self.ablation != "1" and self.ablation != "-1":
             step1_Example = {'sentence: "What are you interested in.", state list: []': '"What are you interested in."',
                     'sentence: "Ok, which other animal sound do you want to listen to.", state list: ["What are you interested in."]': '"Ok, which other animal sound do you want to listen to."',
                     'sentence: "Alright, now ask me for another animal.", state list: ["What are you interested in.", "Come on, ask for another animal."]': '"Come on, ask for another animal."',
@@ -110,14 +135,15 @@ class askChatGPT:
         return self.__promptGlobal1
 
     def step1_prompt2(self, state, skill_output, state_list, errorMessage, messageBody):
-        if self.ablation == "1" or self.delete_feedback:
+        if self.ablation == "1" or self.ablation == "-1" or self.delete_feedback:
             return skill_output
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
-        openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_base = cf.get('Azure', 'apibase')
-        openai.api_version = cf.get('Azure', 'apiversion')
+        client = AzureOpenAI(  
+            azure_endpoint=cf.get('Azure', 'apibase'),  
+            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_version=cf.get('Azure', 'apiversion'),
+        )
         if errorMessage == 'not_exist':
             promptBody2 = "The \"" + state + "\" is not in the state list " + str(state_list) + ". "
             promptBody2 = promptBody2 + "Find a semantically similar state from the state list " + str(state_list) + " for the response \"" + skill_output + "\"."
@@ -127,18 +153,18 @@ class askChatGPT:
             promptBody2 = "The state \"" + errorMessage + "\" and sentence " + skill_output + " are semantically similar."
         self.__record_result(self.__Step1_Recorder_Path, "User:\n" + promptBody2 + "\n")
         if self.__useAPI == True:
-            messageBody.append({"role": "user", "content": promptBody2})
+            messageBody.append({"role": "user", "content": [{"type": "text", "text": promptBody2}]})
             state2 = ''
             for i in range(3):
                 # self.update_duration_list()
                 try:
-                    responseBody = openai.ChatCompletion.create(
-                        engine="Gavin_deployment",
+                    responseBody = client.chat.completions.create(
+                        model="Gavin_deployment",
                         messages = messageBody,
                         temperature = 0,
                         max_tokens = 250
                     )
-                    state2 = str(responseBody['choices'][0]['message']['content'])
+                    state2 = str(responseBody.choices[0].message.content)
                     break
                 except Exception as e:
                     print(e)
@@ -160,10 +186,11 @@ class askChatGPT:
     def step2_chat(self, Ques):
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
-        openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_base = cf.get('Azure', 'apibase')
-        openai.api_version = cf.get('Azure', 'apiversion')
+        client = AzureOpenAI(  
+            azure_endpoint=cf.get('Azure', 'apibase'),  
+            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_version=cf.get('Azure', 'apiversion'),
+        )
         hasGlobal2 = True
         if self.__promptGlobal2 == "":
             hasGlobal2 = False
@@ -173,22 +200,22 @@ class askChatGPT:
         promptBody = promptBody + "Output:"
         if hasGlobal2 == False:
             self.__record_result(self.__Step2_Recorder_Path, "User:\n" + self.__promptGlobal2 + promptBody + "\n")
-            self.__messageBody2.append({"role": "user", "content": self.__promptGlobal2 + promptBody})
+            self.__messageBody2.append({"role": "user", "content": [{"type": "text", "text": self.__promptGlobal2 + promptBody}]})
         else:
             self.__record_result(self.__Step2_Recorder_Path, "User:\n" + promptBody + "\n")
-            self.__messageBody2.append({"role": "user", "content": promptBody})
+            self.__messageBody2.append({"role": "user", "content": [{"type": "text", "text": promptBody}]})
         if self.__useAPI == True:
             gpt_response = ''
             for i in range(3):
                 # self.update_duration_list()
                 try:
-                    responseBody = openai.ChatCompletion.create(
-                        engine="Gavin_deployment",
+                    responseBody = client.chat.completions.create(
+                        model="Gavin_deployment",
                         messages = self.__messageBody2,
                         temperature = 0.1,
                         max_tokens = 300
                     )
-                    gpt_response = str(responseBody['choices'][0]['message']['content'])
+                    gpt_response = str(responseBody.choices[0].message.content)
                     break
                 except Exception as e:
                     print(e)
@@ -199,7 +226,7 @@ class askChatGPT:
                 print("Step2_User:\n" + promptBody + "\n")
             gpt_response = input("Step2_GPT4:\n")
         self.__record_result(self.__Step2_Recorder_Path, "GPT4:\n" + gpt_response + "\n")
-        self.__messageBody2.append({"role": "assistant", "content": gpt_response})
+        self.__messageBody2.append({"role": "assistant", "content": [{"type": "text", "text": gpt_response}]})
         self.step2_lastPrompt = deepcopy(self.__messageBody2)
         if len(self.__messageBody2) > 3:
             self.__messageBody2 = self.__messageBody2[:3]
@@ -224,21 +251,22 @@ class askChatGPT:
         return response_list
             
     def step2_prompt2(self, inpt, Ques, context_related_inputs, type, state, nouns):
-        if self.ablation == "2" or self.delete_feedback:
+        if self.ablation == "2" or self.ablation == "-1" or self.delete_feedback:
             return context_related_inputs
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
-        openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_base = cf.get('Azure', 'apibase')
-        openai.api_version = cf.get('Azure', 'apiversion')
+        client = AzureOpenAI(  
+            azure_endpoint=cf.get('Azure', 'apibase'),  
+            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_version=cf.get('Azure', 'apiversion'),
+        )
         skill_output = Ques.get_ques()
         if inpt == '':
             messageBody = self.step2_lastPrompt
             promptBody2 = "The output should be a non-empty python list of the possible non-empty responses to the sentence \"" + skill_output + "\"."
         else:
             messageBody = [
-                {"role": "system", "content": "Find all the responses to the skill's sentence."}
+                {"role": "system", "content": [{"type": "text", "text": "Find all the responses to the skill's sentence."}]}
             ]
             if self.__promptGlobal2 == "":
                 self.__getPromptGlobal2()
@@ -246,8 +274,8 @@ class askChatGPT:
             skill_output = Ques.get_ques()
             promptBody = 'Input: skill: "' + skill_output + '"\n'
             promptBody = promptBody + "Output:"
-            messageBody.append({"role": "user", "content": self.__promptGlobal2 + promptBody})
-            messageBody.append({"role": "assistant", "content": str(context_related_inputs)})
+            messageBody.append({"role": "user", "content": [{"type": "text", "text": self.__promptGlobal2 + promptBody}]})
+            messageBody.append({"role": "assistant", "content": [{"type": "text", "text": str(context_related_inputs)}]})
             promptBody2 = '"' + inpt + '" is not a valid response for the sentence "' + skill_output + '". '
             promptBody2 = promptBody2 + "The output should be a python list of "
             if type == 1:
@@ -265,18 +293,18 @@ class askChatGPT:
                 promptBody2 = promptBody2 + "responses to " + state + "."
         self.__record_result(self.__Step2_Recorder_Path, "User:\n" + promptBody2 + "\n")
         if self.__useAPI == True:
-            messageBody.append({"role": "user", "content": promptBody2})
+            messageBody.append({"role": "user", "content": [{"type": "text", "text": promptBody2}]})
             responses2 = ''
             for i in range(3):
                 # self.update_duration_list()
                 try:
-                    responseBody = openai.ChatCompletion.create(
-                        engine="Gavin_deployment",
+                    responseBody = client.chat.completions.create(
+                        model="Gavin_deployment",
                         messages = messageBody,
                         temperature = 0.1,
                         max_tokens = 350
                     )
-                    responses2 = str(responseBody['choices'][0]['message']['content'])
+                    responses2 = str(responseBody.choices[0].message.content)
                     break
                 except Exception as e:
                     print(e)
@@ -303,7 +331,7 @@ class askChatGPT:
     def __getPromptGlobal2(self):
         if self.__promptGlobal2 != "":
             return self.__promptGlobal2
-        if self.ablation != "2":
+        if self.ablation != "2" and self.ablation != "-1":
             step2_Example = {"Say today's deals to get started": '["today\'s deals"]',
                             "You can choose a part type like ssd, hdd, cpu, or pick one from the list in the skill's description.": '["ssd", "hdd", "cpu"]',
                             "Do you want to see hdd deals?": '["yes", "no"]',
@@ -330,10 +358,11 @@ class askChatGPT:
     def step3_chat(self, states, state, transitions, candidate_Inpt_list):
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
-        openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_base = cf.get('Azure', 'apibase')
-        openai.api_version = cf.get('Azure', 'apiversion')
+        client = AzureOpenAI(  
+            azure_endpoint=cf.get('Azure', 'apibase'),  
+            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_version=cf.get('Azure', 'apiversion'),
+        )
         candidate_input_list = [i.get_input() for i in candidate_Inpt_list]
         skill_state_info, candidate_input_set_to_weight = self.__gen_prompt_for_step3(states, state, transitions, candidate_Inpt_list, candidate_input_list)
         hasGlobal3 = True
@@ -341,28 +370,28 @@ class askChatGPT:
             hasGlobal3 = False
             self.__getPromptGlobal3()
         promptBody = "Input: " + skill_state_info + "\n"
-        if self.ablation == "3":
+        if self.ablation == "3" or self.ablation == "-1":
             promptBody = promptBody + "Output:"
         else:
             promptBody = promptBody + "Thought:"
         if hasGlobal3 == False:
             self.__record_result(self.__Step3_Recorder_Path, "User:\n" + self.__promptGlobal3 + promptBody + "\n")
-            self.__messageBody3.append({"role": "user", "content": self.__promptGlobal3 + promptBody})
+            self.__messageBody3.append({"role": "user", "content": [{"type": "text", "text": self.__promptGlobal3 + promptBody}]})
         else:
             self.__record_result(self.__Step3_Recorder_Path, "User:\n" + promptBody + "\n")
-            self.__messageBody3.append({"role": "user", "content": promptBody})
+            self.__messageBody3.append({"role": "user", "content": [{"type": "text", "text": promptBody}]})
         if self.__useAPI == True:
             response = ''
             for i in range(3):
                 # self.update_duration_list()
                 try:
-                    responseBody = openai.ChatCompletion.create(
-                        engine="Gavin_deployment",
+                    responseBody = client.chat.completions.create(
+                        model="Gavin_deployment",
                         messages = self.__messageBody3,
                         temperature = 0.1,
                         max_tokens = 400
                     )
-                    response = str(responseBody['choices'][0]['message']['content'])
+                    response = str(responseBody.choices[0].message.content)
                     break
                 except Exception as e:
                     print(e)
@@ -374,7 +403,7 @@ class askChatGPT:
             response = input("Step3_GPT4:\n")
 
         self.__record_result(self.__Step3_Recorder_Path, "GPT4:\n" + response + "\n")
-        self.__messageBody3.append({"role": "assistant", "content": response})
+        self.__messageBody3.append({"role": "assistant", "content": [{"type": "text", "text": response}]})
         select_input = ''
         inQuoteWords = []
         if "Output: " in response:
@@ -421,7 +450,7 @@ class askChatGPT:
         return select_input
 
     def __find_better_inputs(self, candidate_input_set_to_weight, candidate_Inpt_list, select_input):
-        if self.ablation == "3" or self.delete_feedback:
+        if self.ablation == "3" or self.ablation == "-1" or self.delete_feedback:
             return []
         better_inputs = []
         weight_of_select_input = candidate_input_set_to_weight[select_input]
@@ -477,7 +506,7 @@ class askChatGPT:
     def __getPromptGlobal3(self):
         if self.__promptGlobal3 != "":
             return self.__promptGlobal3
-        if self.ablation != "3":
+        if self.ablation != "3" and self.ablation != "-1":
             step3_Example = {'''<current state>="Say today's deals to get started.",FSM={Σ={"stop":0,"help":0,"today's deals":0},δ=()}''': ['''inputs after step1:["stop","help","today's deals"]. inputs after step 2:["today's deals"]. step 3:choose "today\'s deals"''', '"today\'s deals"'],
                             '''<current state>="You can choose a part type like ssd, hdd, cpu, or pick one from the list in the skill's description.",FSM={Σ={"stop":0,"help":0,"ssd":1,"hdd":1,"cpu":0,"today's deals":1},δ=([<current state>,"today's deals",<current state>])}.''': ['''inputs after step1:["stop","help","ssd","hdd","cpu"]. inputs after step2:["ssd","hdd","cpu"] left. step3:choose "cpu".''', '"cpu"']
                             }
@@ -507,17 +536,18 @@ class askChatGPT:
         return self.__promptGlobal3
 
     def step3_prompt2(self, inpt, better_inputs, candidate_input_list, messageBody):
-        if self.ablation == "3" or self.delete_feedback:
+        if self.ablation == "3" or self.ablation == "-1" or self.delete_feedback:
             if inpt not in candidate_input_list:
                 return random.choice(candidate_input_list)
             else:
                 return inpt
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
-        openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_base = cf.get('Azure', 'apibase')
-        openai.api_version = cf.get('Azure', 'apiversion')
+        client = AzureOpenAI(  
+            azure_endpoint=cf.get('Azure', 'apibase'),  
+            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_version=cf.get('Azure', 'apiversion'),
+        )
         if len(better_inputs) != 0:
             promptBody2 = "Choosing an input event from " + str(better_inputs) + " might be better than the input event \"" + inpt + "\"."
             promptBody2 = promptBody2 + "Please choose another input event from the input event list " + str(better_inputs) + "."
@@ -529,18 +559,18 @@ class askChatGPT:
             promptBody2 = promptBody2 + "Please choose another input event from the input event list " + str(candidate_input_list) + "."
         self.__record_result(self.__Step3_Recorder_Path, "User:\n" + promptBody2 + "\n")
         if self.__useAPI == True:
-            messageBody.append({"role": "user", "content": promptBody2})
+            messageBody.append({"role": "user", "content": [{"type": "text", "text": promptBody2}]})
             response2 = ''
             for i in range(3):
                 # self.update_duration_list()
                 try:
-                    responseBody = openai.ChatCompletion.create(
-                        engine="Gavin_deployment",
+                    responseBody = client.chat.completions.create(
+                        model="Gavin_deployment",
                         messages = messageBody,
                         temperature = 0.1,
                         max_tokens = 450
                     )
-                    response2 = str(responseBody['choices'][0]['message']['content'])
+                    response2 = str(responseBody.choices[0].message.content)
                     break
                 except Exception as e:
                     print(e)
@@ -577,7 +607,7 @@ class askChatGPT:
         return candidate_input_list[ind]
 
     def __gen_prompt_for_step3(self, states, state, transitions, candidate_Inpt_list, candidate_input_list):
-        if self.ablation == "3":
+        if self.ablation == "3" or self.ablation == "-1":
             prompt = "sentence=" + state + ",input events="
             for ind, Inpt in enumerate(candidate_Inpt_list):
                 if ind != 0:
