@@ -56,7 +56,7 @@ class Spider:
         time_tmp = time.time()
         while time.time() - time_tmp < 1*60 and self.web_driver.current_url != self.url and (no_pass == False or no_email == False):
             try:
-                email = self.web_driver.find_element(By.ID, 'ap_email')
+                email = self.web_driver.find_element(By.ID, 'ap_email_login')
                 email.send_keys(self.username)
                 time.sleep(1)
                 no_email = False
@@ -77,7 +77,7 @@ class Spider:
             print("open console error!")
             sys.exit()
         deviceLevel_element = self.web_driver.find_element(By.ID, 'deviceLevel-label')
-        self.web_driver.execute_script("arguments[0].click()", deviceLevel_element)
+        deviceLevel_element.click()
         time.sleep(1)
         
     def __refresh(self):
@@ -87,7 +87,7 @@ class Spider:
         # 打开 log 窗口
         self.web_driver.find_element(By.ID, 'deviceLevel-label').click()
         deviceLevel_element = self.web_driver.find_element(By.ID, 'deviceLevel-label')
-        self.web_driver.execute_script("arguments[0].click();", deviceLevel_element)
+        deviceLevel_element.click()
         time.sleep(1)
 
     def load_cookie(self):
@@ -128,7 +128,7 @@ class Spider:
         try:
             # self.web_driver.get(self.home_page)
             log_in_button = self.web_driver.find_element(By.XPATH, '//*[@id="nav-link-accountList"]')
-            self.web_driver.execute_script("arguments[0].click()", log_in_button)
+            log_in_button.click()
             self.load_cookie()
             self.web_driver.find_element(By.ID, 'ap_password').send_keys(self.password)
             self.web_driver.find_element(By.ID, 'ap_password').send_keys(Keys.ENTER)
@@ -145,14 +145,14 @@ class Spider:
 
     def __auto_login_2(self):
         try:
-            self.web_driver.find_element(By.ID, 'ap_email').send_keys(self.username)
-            self.web_driver.find_element(By.ID, 'ap_email').send_keys(Keys.ENTER)
+            self.web_driver.find_element(By.ID, 'ap_email_login').send_keys(self.username)
+            self.web_driver.find_element(By.ID, 'ap_email_login').send_keys(Keys.ENTER)
             time.sleep(5)
             self.web_driver.find_element(By.ID, 'ap_password').send_keys(self.password)
             # 记住登录
             rem = self.web_driver.find_element(By.XPATH,
                 '//*[@id="authportal-main-section"]/div[2]/div/div/div/form/div/div[2]/div/div/label/div/label/input')
-            self.web_driver.execute_script("arguments[0].click()", rem)
+            rem.click()
             self.web_driver.find_element(By.ID, 'ap_password').send_keys(Keys.ENTER)
             # self.web_driver
             # self.web_driver.find_element_by_class_name('a-button-input').click()
@@ -190,7 +190,7 @@ class Spider:
         time_tmp = time.time()
         while time.time() - time_tmp < 1*60 and self.web_driver.current_url != self.url:
             try:
-                email = self.web_driver.find_element(By.ID, 'ap_email')
+                email = self.web_driver.find_element(By.ID, 'ap_email_login')
                 email.send_keys(self.username)
                 time.sleep(1)
             except:
@@ -228,7 +228,7 @@ class Spider:
             sys.exit()
         time.sleep(5)
         deviceLevel_element = self.web_driver.find_element(By.ID, 'deviceLevel-label')
-        self.web_driver.execute_script("arguments[0].click()", deviceLevel_element)
+        deviceLevel_element.click()
         time.sleep(1)
 
     def __decodeBody(self, msgPart):
@@ -298,7 +298,7 @@ class Spider:
         time.sleep(5)
         try:
             approve_botton = driver.find_element(By.XPATH, '//input[@name="customerResponseApproveButton"]')
-            driver.execute_script("arguments[0].click();", approve_botton)
+            approve_botton.click()
         except:
             pass
         time.sleep(5)
@@ -340,15 +340,15 @@ class Spider:
         time.sleep(5)
         try:
             log_in_button = self.web_driver.find_element(By.XPATH, '//*[@id="nav-link-accountList"]')
-            self.web_driver.execute_script("arguments[0].click()", log_in_button)
+            log_in_button.click()
         except:
             print(self.web_driver.page_source)
             print('enter www.amazon.com error!')
             sys.exit()
         # self.auto_login()
         time.sleep(2)
-        self.web_driver.find_element(By.ID, 'ap_email').send_keys(self.username)
-        self.web_driver.find_element(By.ID, 'ap_email').send_keys(Keys.ENTER)
+        self.web_driver.find_element(By.ID, 'ap_email_login').send_keys(self.username)
+        self.web_driver.find_element(By.ID, 'ap_email_login').send_keys(Keys.ENTER)
         time.sleep(10)
         self.web_driver.find_element(By.ID, 'ap_password').send_keys(self.password)
         self.web_driver.find_element(By.ID, 'ap_password').send_keys(Keys.ENTER)
