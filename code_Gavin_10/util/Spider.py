@@ -89,6 +89,7 @@ class Spider:
             except:
                 pass
             if self.web_driver.current_url.startswith("https://www.amazon.com/ap/cvf/transactionapproval"):
+                time.sleep(10)
                 code = self.__get_link()
                 print(code)
                 if code != '':
@@ -250,6 +251,7 @@ class Spider:
             except:
                 pass
             if self.web_driver.current_url.startswith("https://www.amazon.com/ap/cvf/transactionapproval"):
+                time.sleep(10)
                 code = self.__get_link()
                 print(code)
                 if code != '':
@@ -435,8 +437,8 @@ class Spider:
         self.web_driver.find_element(By.ID, 'ap_password').send_keys(Keys.ENTER)
         time.sleep(5)
         if self.web_driver.current_url != "https://www.amazon.com/?ref_=nav_ya_signin":
-            time.sleep(20)
             if self.web_driver.current_url.startswith("https://www.amazon.com/ap/cvf/transactionapproval"):
+                time.sleep(10)
                 code = self.__get_link()
                 print(code)
                 if code != '':
