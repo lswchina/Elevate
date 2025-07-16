@@ -1,6 +1,7 @@
 import re
 import html
 import spacy
+import en_core_web_sm
 
 class NLP():
     def __init__(self):
@@ -12,7 +13,7 @@ class NLP():
         Lines = Line.split("<Short audio>.")
         sentences = []
         for line in Lines:
-            nlp = spacy.load("en_core_web_sm")
+            nlp = en_core_web_sm.load()
             doc = nlp(line)
             tempsents = []
             for sent in doc.sents:
@@ -52,7 +53,7 @@ class NLP():
     @staticmethod
     def imergeNones(question):
         spacyRet = []
-        nlp = spacy.load("en_core_web_sm")
+        nlp = en_core_web_sm.load()
         doc = nlp(question)
         for word in doc:
             spacyRet.append(word)
@@ -152,7 +153,7 @@ class NLP():
     @staticmethod
     def getNoneOfWhatQ(question):
         Key = []
-        nlp_ = spacy.load("en_core_web_sm")
+        nlp_ = en_core_web_sm.load()
         doc = nlp_(question)
         for chunk in doc.noun_chunks:
             if chunk.text == 'What' or chunk.text == 'what' or chunk.text == 'you':
@@ -169,7 +170,7 @@ class NLP():
     @staticmethod
     def getNoneOfIQ(question):
         instruction_list = ['say', 'ask', 'tell']
-        nlp_ = spacy.load("en_core_web_sm")
+        nlp_ = en_core_web_sm.load()
         doc = nlp_(question)
         findInstruc = False
         for word in doc:

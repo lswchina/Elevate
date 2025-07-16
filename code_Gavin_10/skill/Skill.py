@@ -3,6 +3,7 @@ import re
 import os
 import sys
 import openpyxl
+import en_core_web_sm
 from util.NLP import NLP
 
 class Skill:
@@ -28,7 +29,7 @@ class Skill:
     def __findSubjectType(self, subjects, subjectType):#0:skill 1:user 2:other
         skillSim = 0
         userSim = 0
-        nlp = spacy.load("en_core_web_sm")
+        nlp = en_core_web_sm.load()
         if type(subjects) == spacy.tokens.span.Span:
             subject = nlp(subjects.root.text)
         else:
@@ -242,7 +243,7 @@ class Skill:
         inInfo = False
         impInfo = ''
         for sent in self.__description_sents:
-            nlp = spacy.load("en_core_web_sm")
+            nlp = en_core_web_sm.load()
             doc = nlp(sent)
             for word in doc:
                 if "\"" in word.text:
