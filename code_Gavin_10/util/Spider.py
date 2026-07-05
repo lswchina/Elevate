@@ -151,26 +151,26 @@ class Spider:
         cookie2 = {}
         cookie3 = {}
         cookie4 = {}
-        #cookies = {}
+        new_cookies_remove_empty = []
         for cookie_tmp in new_cookies:
             if cookie_tmp['name'] == 'ubid-main':
                 cookie1['name'] = cookie_tmp['name']
                 cookie1['value'] = cookie_tmp['value']
+                new_cookies_remove_empty.append(cookie1)
             elif cookie_tmp['name'] == 'x-main':
                 cookie2['name'] = cookie_tmp['name']
                 cookie2['value'] = cookie_tmp['value']
+                new_cookies_remove_empty.append(cookie2)
             elif cookie_tmp['name'] == 'at-main':
                 cookie3['name'] = cookie_tmp['name']
                 cookie3['value'] = cookie_tmp['value']
+                new_cookies_remove_empty.append(cookie3)
             elif cookie_tmp['name'] == 'sess-at-main':
                 cookie4['name'] = cookie_tmp['name']
                 cookie4['value'] = cookie_tmp['value']
-            #cookies[cookie_tmp['name']] = cookie_tmp['value']
-        new_cookies = [cookie1, cookie2, cookie3, cookie4]
-        cookie_file = open(cookie_dir, 'wb')
-        pickle.dump(new_cookies, cookie_file)
-        #pickle.dump(cookies, cookie_file)
-        cookie_file.close()
+                new_cookies_remove_empty.append(cookie4)
+        with open(self.cookie_dir, 'wb') as cookie_file:
+            pickle.dump(new_cookies_remove_empty, cookie_file)
 
     def __auto_login_bak(self):
         try:
