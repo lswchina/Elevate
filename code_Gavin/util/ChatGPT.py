@@ -34,7 +34,7 @@ class askChatGPT:
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
         openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = os.getenv("GAVIN_OPENAI_API_KEY")
         openai.api_base = cf.get('Azure', 'apibase')
         openai.api_version = cf.get('Azure', 'apiversion')
         hasGlobal1 = True
@@ -108,7 +108,7 @@ class askChatGPT:
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
         openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = os.getenv("GAVIN_OPENAI_API_KEY")
         openai.api_base = cf.get('Azure', 'apibase')
         openai.api_version = cf.get('Azure', 'apiversion')
         if errorMessage == 'not_exist':
@@ -154,7 +154,7 @@ class askChatGPT:
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
         openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = os.getenv("GAVIN_OPENAI_API_KEY")
         openai.api_base = cf.get('Azure', 'apibase')
         openai.api_version = cf.get('Azure', 'apiversion')
         hasGlobal2 = True
@@ -220,7 +220,7 @@ class askChatGPT:
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
         openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = os.getenv("GAVIN_OPENAI_API_KEY")
         openai.api_base = cf.get('Azure', 'apibase')
         openai.api_version = cf.get('Azure', 'apiversion')
         skill_output = Ques.get_ques()
@@ -317,7 +317,7 @@ class askChatGPT:
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
         openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = os.getenv("GAVIN_OPENAI_API_KEY")
         openai.api_base = cf.get('Azure', 'apibase')
         openai.api_version = cf.get('Azure', 'apiversion')
         candidate_input_list = [i.get_input() for i in candidate_Inpt_list]
@@ -486,7 +486,7 @@ class askChatGPT:
         cf = configparser.ConfigParser()
         cf.read(self.__config_path)
         openai.api_type = "azure"
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = os.getenv("GAVIN_OPENAI_API_KEY")
         openai.api_base = cf.get('Azure', 'apibase')
         openai.api_version = cf.get('Azure', 'apiversion')
         if len(better_inputs) != 0:

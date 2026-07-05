@@ -61,7 +61,7 @@ class askChatGPT:
         cf.read(self.__config_path)
         client = AzureOpenAI(  
             azure_endpoint=cf.get('Azure', 'apibase'),  
-            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_key=os.getenv("GAVIN_OPENAI_API_KEY"),
             api_version=cf.get('Azure', 'apiversion'),
         )
         hasGlobal1 = True
@@ -141,7 +141,7 @@ class askChatGPT:
         cf.read(self.__config_path)
         client = AzureOpenAI(  
             azure_endpoint=cf.get('Azure', 'apibase'),  
-            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_key=os.getenv("GAVIN_OPENAI_API_KEY"),  
             api_version=cf.get('Azure', 'apiversion'),
         )
         if errorMessage == 'not_exist':
@@ -188,7 +188,7 @@ class askChatGPT:
         cf.read(self.__config_path)
         client = AzureOpenAI(  
             azure_endpoint=cf.get('Azure', 'apibase'),  
-            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_key=os.getenv("GAVIN_OPENAI_API_KEY"),  
             api_version=cf.get('Azure', 'apiversion'),
         )
         hasGlobal2 = True
@@ -257,7 +257,7 @@ class askChatGPT:
         cf.read(self.__config_path)
         client = AzureOpenAI(  
             azure_endpoint=cf.get('Azure', 'apibase'),  
-            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_key=os.getenv("GAVIN_OPENAI_API_KEY"),  
             api_version=cf.get('Azure', 'apiversion'),
         )
         skill_output = Ques.get_ques()
@@ -360,7 +360,7 @@ class askChatGPT:
         cf.read(self.__config_path)
         client = AzureOpenAI(  
             azure_endpoint=cf.get('Azure', 'apibase'),  
-            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_key=os.getenv("GAVIN_OPENAI_API_KEY"),  
             api_version=cf.get('Azure', 'apiversion'),
         )
         candidate_input_list = [i.get_input() for i in candidate_Inpt_list]
@@ -545,7 +545,7 @@ class askChatGPT:
         cf.read(self.__config_path)
         client = AzureOpenAI(  
             azure_endpoint=cf.get('Azure', 'apibase'),  
-            api_key=os.getenv("OPENAI_API_KEY"),  
+            api_key=os.getenv("GAVIN_OPENAI_API_KEY"),  
             api_version=cf.get('Azure', 'apiversion'),
         )
         if len(better_inputs) != 0:
