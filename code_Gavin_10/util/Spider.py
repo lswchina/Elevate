@@ -169,7 +169,7 @@ class Spider:
                 cookie4['name'] = cookie_tmp['name']
                 cookie4['value'] = cookie_tmp['value']
                 new_cookies_remove_empty.append(cookie4)
-        with open(self.cookie_dir, 'wb') as cookie_file:
+        with open(cookie_dir, 'wb') as cookie_file:
             pickle.dump(new_cookies_remove_empty, cookie_file)
 
     def __auto_login_bak(self):
